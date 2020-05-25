@@ -28,5 +28,7 @@ jobs:
       with:
         app-name: 'testgitmikaelsu'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d8d7c2bea6f54e769182c9f57830a471 }}
+        publish-profile: - uses: azure/webapps-deploy@v2
+      with:
+        creds: ${{ secrets.azureWebAppPublishProfile }}
         package: '${{ github.workspace }}/target/*.jar'
